@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DomainName;
 
 class ShortLink extends Model
 {
@@ -15,6 +16,11 @@ class ShortLink extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'link'
+        'code', 'link','domain_id'
     ];
+
+    public function domain()
+    {
+        return $this->belongsTo(DomainName::class,'domain_id','id');
+    }
 }

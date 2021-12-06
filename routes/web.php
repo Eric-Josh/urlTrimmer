@@ -20,5 +20,7 @@ Route::get('/', function () {
 
 Route::get('generate-shorten-link', [ShortLinkController::class, 'index']);
 Route::post('generate-shorten-link', [ShortLinkController::class, 'store'])->name('generate.shorten.link.post');
+Route::post('add-domain', [ShortLinkController::class, 'addDomain'])->name('add.new.domain.post');
+Route::post('custom-domain', [ShortLinkController::class, 'customDomain'])->name('custom.domain.post');
    
 Route::get('{code}', [ShortLinkController::class, 'shortenLink'])->name('shorten.link');
